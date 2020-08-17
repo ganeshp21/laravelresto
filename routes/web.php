@@ -22,3 +22,4 @@ Route::get('/','RestoController@index');
 Route::get('/list','RestoController@list'); 
 Route::view('/add','add');  
 Route::post('/add','RestoController@add'); 
+Route::get('/delete/{id}','RestoController@delete'); 

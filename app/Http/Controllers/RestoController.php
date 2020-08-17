@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurant;
+use Session; 
 
 class RestoController extends Controller
 {
@@ -31,6 +32,14 @@ class RestoController extends Controller
         $resto->save();     
         $req->session()->flash('status','Restaurant entered successfully.');
         return redirect('list'); 
+
+    }
+
+    public function delete($id){  
+        //echo $id;   
+        Restaurant::find($id)->delete();   
+         session::flash('status','Restaurant has been deleted successfully.');
+         return redirect('list'); 
 
     }
 }

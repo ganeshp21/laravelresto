@@ -17,6 +17,7 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Address</th>
+      <th scope='col'>Operation</th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +30,7 @@ $i=1
       <td>{{$item->name}}</td>
       <td>{{$item->email}}</td>
       <td>{{$item->address}}</td>
+      <td><a href="/delete/{{$item->id}}"><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>
     </tr>
    @php $i++ @endphp
     @endforeach
