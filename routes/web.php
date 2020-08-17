@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/','RestoController@index'); 
+Route::get('/list','RestoController@list'); 
