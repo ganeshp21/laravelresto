@@ -25,3 +25,5 @@ Route::post('/add','RestoController@add');
 Route::get('/delete/{id}','RestoController@delete'); 
 Route::get('/edit/{id}','RestoController@editview');   
 Route::post('/edit','RestoController@edit');  
+Route::view('/register','register');
+Route::post('/register','RestoController@register'); 

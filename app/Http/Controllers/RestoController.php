@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\User; 
 use Session; 
 
 class RestoController extends Controller
@@ -65,6 +66,27 @@ class RestoController extends Controller
         $resto->save();     
         $req->session()->flash('status','Restaurant update successfully.');
         return redirect('list'); 
+
+    }
+
+
+    public function register(Request $req){
+       // return $req->input(); 
+       $req->validate([
+        'email'=>'required |unique:users| email', 
+        'name' =>'required |string|max:200',
+        'password' => 'nullable|required|max:15|min:6'
+    ]); 
+
+    $user = new User;  
+    $user->name = $req->input('name');  
+    $user->email = $req->input('email');  
+    $user->password = md5($req->input('address')); 
+    $user->created_at = date('Y-m-d H:i:s');    
+    $user->save();     
+    $req->session()->flash('status','User registered successfully.');
+    return redirect('register'); 
+
 
     }
 }
