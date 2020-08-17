@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/','RestoController@index'); 
 Route::get('/list','RestoController@list'); 
+Route::view('/add','add');  
