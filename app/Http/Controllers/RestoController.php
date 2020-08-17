@@ -42,4 +42,29 @@ class RestoController extends Controller
          return redirect('list'); 
 
     }
+
+
+    public function editview($id){ 
+        $data = Restaurant::find($id); 
+       return view('edit',['data'=>$data]);   
+    }
+
+
+    public function edit(Request $req){ 
+        $req->validate([
+            'address'=>'required' , 
+            'email'=>'required | email', 
+            'name' =>'required',
+            'restoid'=>'required' 
+        ]); 
+    
+        $resto = Restaurant::find($req->restoid);  
+        $resto->name = $req->input('name');  
+        $resto->email = $req->input('email');  
+        $resto->address = $req->input('address'); 
+        $resto->save();     
+        $req->session()->flash('status','Restaurant update successfully.');
+        return redirect('list'); 
+
+    }
 }

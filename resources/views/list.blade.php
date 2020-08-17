@@ -30,7 +30,11 @@ $i=1
       <td>{{$item->name}}</td>
       <td>{{$item->email}}</td>
       <td>{{$item->address}}</td>
-      <td><a href="/delete/{{$item->id}}"><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a></td>
+      <td>
+      <a href="/delete/{{$item->id}}"><i class='fas fa-trash-alt' style='font-size:16px;color:red'></i></a>
+      | <a href="/edit/{{$item->id}}"><i class='fas fa-pencil-alt' style='font-size:16px;'></i></a>
+      
+      </td>
     </tr>
    @php $i++ @endphp
     @endforeach
