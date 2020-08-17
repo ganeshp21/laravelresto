@@ -33,12 +33,22 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Search</a>
       </li>
+      
+      @if(session()->has('users')) 
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+      <a class="nav-link" href="/"><b> Welcome , {{session()->get('users')}}</b> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      @else
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
+      @endif
     </ul>
   </div>
 </nav>
